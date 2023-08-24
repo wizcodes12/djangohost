@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Text</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Include the common styling -->
+    <link rel="stylesheet" href="theme.css">
+    
+    <style>
+           body {
+            background-color: black;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: lightblue;
+            color: black;
+        }
+        /* Additional styling for larger analyzed text */
+        .analyzed-text {
+            font-size: 28px; /* Adjust the font size as needed */
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            background-color: #222;
+            color: white;
+            position: relative;
+        }
+        
+        .copy-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+    
+    <script>
+        $(document).ready(function() {
+            $('.copy-icon').click(function() {
+                var analyzedText = $('.analyzed-text').text();
+                var tempTextArea = document.createElement('textarea');
+                tempTextArea.value = analyzedText;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+                alert('Analyzed text copied to clipboard!');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ purpose }}</h1>
+        <p class="analyzed-text">{{ analyzed_text }}<span class="copy-icon">&#x1F4CB;</span></p>
+        <p><a href="{% url 'index' %}">Go back</a></p>
+    </div>
+</body>
+</html>

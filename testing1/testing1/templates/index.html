@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RePunc by WizCodes</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: lightblue;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RmPunc by WizCodes</h1>
+        <form action='/analyze' method="get" class="mt-4">
+            <div class="form-group">
+                <textarea name="text" class="form-control" rows="5" placeholder="Enter your text here"></textarea>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="removepunc" id="removepunc">
+                <label class="form-check-label" for="removepunc">Remove Punctuations</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+
+            <!-- <button name="submitt" class="btn btn-primary mt-3">Submit</button>
+            <a href="{% url 'submit' %}">reset</a> -->
+        </form>
+    
+    </div>
+</body>
+</html>
